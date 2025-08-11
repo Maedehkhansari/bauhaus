@@ -1,0 +1,23 @@
+<section>
+  <form #taskForm="ngForm" (submit)="addNewTask(taskForm)">
+    <label for="title">
+      Title: 
+      <input type="text" name="title" id="title" [(ngModel)]="taskFormData.title">
+    </label>
+    <label for="description">
+      Description:
+      <textarea name="description" id="description" [(ngModel)]="taskFormData.description"></textarea>
+    </label>
+    <button type="submit">Add new task</button>
+  </form>
+
+  @for (task of tasks; track $index) {
+    <div>
+      <h2>{{task.title }}</h2>
+      <p>{{ task.description }}</p>
+      <span>
+        <input type="checkbox" name="status" [checked]="task.status">
+      </span>
+    </div>
+  }
+</section>
